@@ -1,0 +1,7 @@
+CREATE TABLE employee (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    fullname VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(20) NOT NULL,
+    introduce VARCHAR(255) NOT NULL
+);

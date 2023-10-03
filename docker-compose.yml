@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  db-service:
+    image: mysql:8.0.28
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - "33061:3306"
+    volumes:
+      - project_database:/var/lib/mysql
+
+  nginx-service:
+    build: ./nginx
+    ports:
+      - "5001:80"
+    depends_on:
+      - php-service
+    volumes:
+      - ./nginx/sites:/etc/nginx/conf.d/
+      - ./nginx/log/:/var/log/nginx/
+      - ./src/:/var/www/
+    working_dir: /var/www/
+
+  php-service:
+    build: ./php
+    volumes:
+      - ./src:/var/www/
+
+volumes:
+  project_database:

@@ -1,0 +1,3 @@
+ADMIN
+    --  phân biệt giữa admin với user là lever(có nghĩa là phân quyền)
+        kiểm tra nếu có lever thì đó chính là admin đã đăng nhập.
